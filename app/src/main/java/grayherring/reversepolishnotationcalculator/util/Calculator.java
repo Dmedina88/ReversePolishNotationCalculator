@@ -13,7 +13,7 @@ import java.util.Stack;
 public class Calculator {
 
     private static final String decimalFormatStr =  "0.##########";
-   static public String calculate(String rawEquation) throws Exception {
+   static public String calculate(String rawEquation) throws IllegalArgumentException {
        String delimiter = "[ ]+";
        String[] tokens = rawEquation.split(delimiter);
        Stack<Double> stack = new Stack<>();
@@ -23,23 +23,23 @@ public class Calculator {
             if(operators.contains(token)){
                 switch(token){
                     case "+":
-                        stack.add(stack.pop() + stack.pop());
+                        stack.push(stack.pop() + stack.pop());
                         break;
                     case "-":
-                        stack.add(subtract(stack.pop(), stack.pop()));
+                        stack.push(subtract(stack.pop(), stack.pop()));
                         break;
                     case "*":
-                        stack.add(stack.pop() * stack.pop());
+                        stack.push(stack.pop() * stack.pop());
                         break;
                     case "/":
-                        stack.add(divide(stack.pop(), stack.pop()));
+                        stack.push(divide(stack.pop(), stack.pop()));
                         break;
                     default:
-                        throw new Exception(" not a valid Argument in Equation");
+                        throw new IllegalArgumentException(" not a valid Argument in Equation");
                 }
             }else {
                 try{
-                stack.add(Double.parseDouble(token));
+                stack.push(Double.parseDouble(token));
                 } catch (NumberFormatException e) {
                     throw new IllegalArgumentException(token +" not a valid Argument in Equation");
                 }
