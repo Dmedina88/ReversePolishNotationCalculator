@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Reverse Polish Notation Calculator</string>
+    <string name="enter">Enter</string>
 </resources>
