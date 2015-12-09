@@ -1,14 +1,11 @@
 package grayherring.reversepolishnotationcalculator.util;
 
 import android.util.Log;
-import android.widget.Switch;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
-import javax.xml.transform.Result;
 
 /**
  * Created by David on 12/9/2015.

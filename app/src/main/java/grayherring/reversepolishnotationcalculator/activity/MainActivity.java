@@ -1,5 +1,7 @@
 package grayherring.reversepolishnotationcalculator.activity;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     mOutPut.setText(Calculator.calculate(mInput.getText().toString()));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.CustomDialog);
+                    builder.setTitle("There is an issue with your Input");
+                    builder.setMessage(e.getMessage());
+                    builder.setNegativeButton("OK", null);
+                    builder.show();
                 }
                 break;
         }
