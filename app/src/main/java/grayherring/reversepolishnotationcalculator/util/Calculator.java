@@ -24,13 +24,13 @@ public class Calculator {
             if(operators.contains(token)){
                 switch(token){
                     case "+":
-                        stack.push(stack.pop() + stack.pop());
+                        stack.push(add(stack.pop() , stack.pop()));
                         break;
                     case "-":
                         stack.push(subtract(stack.pop(), stack.pop()));
                         break;
                     case "*":
-                        stack.push(stack.pop() * stack.pop());
+                        stack.push(multiply(stack.pop() , stack.pop()));
                         break;
                     case "/":
                         stack.push(divide(stack.pop(), stack.pop()));
@@ -72,7 +72,13 @@ public class Calculator {
             throw new ArithmeticException("Arithmetic results in dividing by 0");
         }
         return result;
+    }
 
+    public static Double add(Double val1,Double val2) throws ArithmeticException {
+        return val1 + val2;
+    }
+    public static Double multiply(Double val1, Double val2) throws ArithmeticException {
+        return val1 * val2;
     }
 
 }
