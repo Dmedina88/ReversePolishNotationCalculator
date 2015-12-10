@@ -12,7 +12,8 @@ import java.util.Stack;
  */
 public class Calculator {
 
-    private static final String decimalFormatStr =  "0.##########";
+   private static final String decimalFormatStr =  "0.##########";
+    
    static public String calculate(String rawEquation) throws IllegalArgumentException,ArithmeticException  {
        String delimiter = "[ ]+";
        String[] tokens = rawEquation.split(delimiter);
@@ -63,22 +64,22 @@ public class Calculator {
 
    }
 
-    public static Double subtract(Double val1,Double val2) throws ArithmeticException {
-        return val2 - val1;
+    public static Double subtract(Double subtrahend,Double minuend) throws ArithmeticException {
+        return minuend - subtrahend;
     }
-    public static Double divide(Double val1,Double val2){
-        Double result =val2 / val1;
+    public static Double divide(Double Divisors,Double dividend){
+        Double result =dividend / Divisors;
         if(result.isInfinite()){
             throw new ArithmeticException("Arithmetic results in dividing by 0");
         }
         return result;
     }
 
-    public static Double add(Double val1,Double val2) throws ArithmeticException {
-        return val1 + val2;
+    public static Double add(Double num1,Double num2) throws ArithmeticException {
+        return num1 + num2;
     }
-    public static Double multiply(Double val1, Double val2) throws ArithmeticException {
-        return val1 * val2;
+    public static Double multiply(Double num1, Double num2) throws ArithmeticException {
+        return num1 * num2;
     }
 
 }
